@@ -1,0 +1,18 @@
+version: "3"
+services:
+  user-service:
+    build: ./services/user-service
+    ports:
+      - "3001:3001"
+
+  payment-service:
+    build: ./services/payment-service
+    ports:
+      - "3002:3002"
+
+  order-service:
+    build: ./services/order-service
+    ports:
+      - "3003:3003"
+    depends_on:
+      - payment-service
